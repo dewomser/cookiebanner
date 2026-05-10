@@ -1,0 +1,38 @@
+<html>
+<head>
+document.cookie = "klicker";
+function change()
+{
+// document.getElementById("d").style.visibility="hidden";
+document.getElementById("d").style.display = "none";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+var x = getCookie('klicker'); 
+</script>
+</head>
+<body>
+<div id="d" class ="small" style="background-color:lightgrey;"><span style="margin-left: 10px;"> Diese Seite benutzt Cookies Info: <a href="/datenschutz">🍪</a></span>
+<span style="float:right; margin-right: 10px;"> <a href="#" onclick="document.cookie = 'klicker=Gedruckt; path=/'; change();">ok</a>
+</span>
+<script>
+if (x == 'Gedruckt'){
+change();
+}
+</script>
+</div>
+</body>
+</html>
